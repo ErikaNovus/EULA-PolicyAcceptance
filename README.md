@@ -22,4 +22,12 @@ There are two buttons on the form "I Accept" and "I Decline" when the former is 
 # EULA.vbs
 A short script that re-enables the task manager for the user. The script then updates directory.txt with the username of the currently logged on user and then updates users.txt with the username, time and date, and current version number of the EULA.
 
+# Escape block
+A small note for running tests on this script and making changes. There are some code blocks that stop the task manager from being opened whilst EULA.hta is open. This is to stop users from bypassing the acceptance. If you run the script you will have to accept the policy otherwise you will not be able to get back to the desktop. If any changes are made to file paths please make sure that the "I accept" button is relinked to EULA.vbs otherwise the button will not work and you will be stuck inside EULA.hta. The "I decline" button will log you out no matter what though so that is an easy way out.
 
+keys blocked by EULA.hta:
+116 = alt+f5
+115= alt+f4
+27 = alt+esc
+
+logon.vbs turns off the task manager. It is only reactivated when EULA.vbs is run.
