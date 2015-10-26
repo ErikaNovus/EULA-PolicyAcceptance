@@ -4,7 +4,7 @@
 <!--Removes all basic windows GUI functions such as Taskbar and close button -->
 <HTA:APPLICATION  
 	APPLICATIONNAME="LOGIN"  
-	VERSION="1.0.0.0"  
+	VERSION="1.0"  
 	BORDER="none"  
 	INNERBORDER="no"  
 	CAPTION="no"  
@@ -21,13 +21,15 @@
 	SELECTION="no"/> 
    
 <script language="VBScript"> 
-	Sub logon '* Opens the EULA.vbs file
+	Sub logon
         Set objShell = CreateObject("Wscript.Shell") 
-        objShell.Run "EULA.vbs"
+        currentDir = objShell.CurrentDirectory
+        progStr = currentDir + "\EULA.vbs"
+        objShell.Run progStr
 		window.close
     End Sub
 	
-	Sub logoff '* Logs the user off
+	Sub logoff 
         Set objShell = CreateObject("Wscript.Shell")
         objShell.Run "shutdown /l"
     End Sub
@@ -36,7 +38,7 @@
 <script language="JavaScript"> 
 function document.onkeydown() {  
    var alt=window.event.altKey; 
-   // 116 = alt+f5, 115= alt+f4, 27 = alt+esc
+   // 116 = f5, 115= alt+f4, 27 = alt+esc
    // cancel the use of program closing keys
    if (event.keyCode==116 || event.keyCode==27 || alt && event.keyCode==115) { 
    event.keyCode=0; 
@@ -47,62 +49,69 @@ function document.onkeydown() {
 </script>
 
 <style type="text/css">
+@font-face { font-family: MyriadPro; src: url(assets/MyriadPro-Regular.otf); }
 body {
-	margin:40px;
-	font:11px Verdana, Geneva, sans-serif;
+    margin:40px;
+    font-family: MyriadPro;
 }
 
 hr {
-	margin-bottom:15px;
-	height:1px;
+    margin-bottom:15px;
+    height:1px;
+    background-color: #004c99;
 }
 
-.statement_title {
-	margin-bottom:15px;
-	font-size:18px;
+.title {
+    margin-bottom:16px;
+    font-size:18px;
+}
+img {
+    width: 199px;
+    height: 71.5px;
+    margin-bottom: 250px;
 }
 
-.statement {
-	margin-bottom:20px;
+.main_text {
+    margin-bottom:20px;
 }
 
 .button { 
-	float: right;  
-	margin-left:10px;      
-	background-color:#3d94f6;   
-	border:1px solid #337fed;     
-	display:inline-block;
-	color:#ffffff;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:9px 25px;
-	text-decoration:none;
-	cursor:pointer;     
+    float: right;  
+    margin-left:10px;      
+    background-color:#00265D;   
+    border:1px solid #004c99;     
+    display:inline-block;
+    color:#ffffff;
+    font-family:arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:9px 25px;
+    text-decoration:none;
+    cursor:pointer;     
 }
 </style>
 </head>
 <body>
-
-	<div class="statement_title">NG Bailey End User Licence Agreement</div>
+    <img src="assets/NG-Bailey.png" alt="Relevant Logo">
+    <div class="title">Relevant End User Licence Agreement</div>
     <hr>
 
-	<div class="statement">
-	By clicking "I Accept" below you agree to adhere to our End User Licence Agreement. Any breaking of the Terms Of Service held within the EULA
-	are grounds for user account termination and will result in a disciplinary. The EULA <strong>must</strong> be accepted to use any NG Bailey network
-	facilities and services.
+    <div class="main_text">
+    By clicking "I Accept" below you agree to adhere to our End User Licence Agreement. Any breaking of the Terms Of Service held within the EULA
+    are grounds for user account termination and will result in a disciplinary. The EULA <strong>must</strong> be accepted to use any Relevant network
+    facilities and services.
     </div>
-    <div class="statement">
-	By clicking "I Decline" you are declining our EULA and will be unable to use the NG Bailey network and you will be logged off the current computer.
+    <div class="main_text">
+    By clicking "I Decline" you are declining our EULA and will be unable to use the Relevant network and you will be logged off the current computer.
     </div>
     <hr>
  
     <div>
-    	<a href onClick="logoff" class="button">I Decline</a>
+        <a href onClick="logoff" class="button">I Decline</a>
     </div>
     
     <div>
-    	<a href onClick="logon" class="button">I Accept</a>
+        <a href onClick="logon" class="button">I Accept</a>
     </div>
 </body>
 </html>
