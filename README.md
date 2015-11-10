@@ -33,7 +33,7 @@ Keys blocked by EULA.hta:
 + _ctrl+alt+del_
 
 ### store_to_process.bat
-Very short batch file that uses Robocopy to move all current .csv files into the process folder so that they can be picked up by an SSIS package (see (here)[https://www.mssqltips.com/sqlservertip/2874/loop-through-flat-files-in-sql-server-integration-services/]) and transferred into an SQL database for easy concurrent read/write access.
+Very short batch file that uses Robocopy to move all current .csv files into the process folder so that they can be picked up by an SSIS package (see [here](https://www.mssqltips.com/sqlservertip/2874/loop-through-flat-files-in-sql-server-integration-services/)) and transferred into an SQL database for easy concurrent read/write access.
 Two folders are needed due to the original folder being constantly written to and copying into the SQL database whilst the folder is being written too was a issue I didn't want to try to figure out and so used an easier issue.
 
 
