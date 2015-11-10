@@ -26,11 +26,11 @@ A short script that re-enables the task manager for the user. The script then up
 A small note for running tests on this script and making changes. There are some code blocks that stop the task manager from being opened whilst EULA.hta is open. This is to stop users from bypassing the acceptance. If you run the script you will have to accept the policy otherwise you will not be able to get back to the desktop. If any changes are made to file paths please make sure that the "I accept" button is relinked to EULA.vbs otherwise the button will not work and you will be stuck inside EULA.hta. The "I decline" button will log you out no matter what though so that is an easy way out.
 
 Keys blocked by EULA.hta:
-_116 = alt+f5_
-_115= alt+f4_
-_27 = alt+esc_
-_76 = win+l_
-_ctrl+alt+del_
++ _116 = alt+f5_
++ _115= alt+f4_
++ _27 = alt+esc_
++ _76 = win+l_
++ _ctrl+alt+del_
 
 ### store_to_process.bat
 Very short batch file that uses Robocopy to move all current .csv files into the process folder so that they can be picked up by an SSIS package (see (here)[https://www.mssqltips.com/sqlservertip/2874/loop-through-flat-files-in-sql-server-integration-services/]) and transferred into an SQL database for easy concurrent read/write access.
